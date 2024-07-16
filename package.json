@@ -3,29 +3,39 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint 'index.js'",
-    "prettier": "prettier --config .prettierrc 'src/**/*.js' --write",
+    "lint": "eslint . src/*.ts",
+    "prettier": "prettier --config .prettierrc.json src/*.ts --write",
     "build": "npx tsc",
-    "start": "nodemon src/index.ts"
+    "start": "nodemon src/index.ts",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine"
   },
-  "author": "",
+  "author": "Duc Khoa Nguyen",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@eslint/js": "^9.7.0",
     "@types/express": "^4.17.21",
+    "@types/jasmine": "^5.1.4",
     "@types/node": "^20.14.10",
     "@types/sharp": "^0.32.0",
+    "@types/supertest": "^6.0.2",
     "eslint": "^9.7.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
+    "globals": "^15.8.0",
     "nodemon": "^3.1.4",
     "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.1"
   },
   "dependencies": {
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
-    "sharp": "^0.33.4"
+    "jasmine": "^5.1.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "sharp": "^0.33.4",
+    "supertest": "^7.0.0"
   }
 }

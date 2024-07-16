@@ -65,11 +65,11 @@ images.get('/',async (req,res): Promise<void>=>{
       }
       else{
         const readStream = fs.createReadStream(`../ImageApi/src/imagesrc/full/${filenameString}.jpg`);
-    let transform = sharp().resize(width, height).toFormat('jpg');
+    const transform = sharp().resize(width, height).toFormat('jpg');
       readStream.pipe(transform).pipe(res);
     try{
-      let output=`../ImageApi/src/imagesrc/thumb/${filenameString}x${width}x${height}.jpg` as string;
-      let input=`../ImageApi/src/imagesrc/full/${filenameString}.jpg` ;
+      const output=`../ImageApi/src/imagesrc/thumb/${filenameString}x${width}x${height}.jpg` as string;
+      const input=`../ImageApi/src/imagesrc/full/${filenameString}.jpg` ;
     await  sharp(input).resize(width, height).toFormat('jpg').toFile(output);}
      catch(error){
       console.error('Save file error:', error);
